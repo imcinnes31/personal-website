@@ -1,0 +1,51 @@
+/*all pages are margined top and bottom*/
+
+body {
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+/*all headlines are centered*/
+h1,h2,h3,h4,h5,h6,.pictureRows,.buttons,.textToCenter,.endCaption {
+    text-align:center;
+}
+
+/*all paragraphs and blockquotes are margined left and right*/
+p {
+    margin-left:50px;
+    margin-right:50px;
+}
+
+blockquote {
+    margin-left:150px;
+    margin-right:150px;
+}
+
+/*bootstrap buttons are width 300px*/
+.btn {
+    width:300px;
+}
+
+.endCaption {
+    font-size:18px;
+    font-weight:bold;
+}
+
+/*tables, buttons, frames, and audio are centered*/
+table {
+    margin: 0 auto;
+}
+
+th, td {
+    padding: 10px;
+}
+
+input, iframe, button, audio {
+    margin:0 auto;
+    display:block;
+}
+
+
+
+
+

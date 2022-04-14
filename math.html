@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ian McInnes - Math Magic</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            /*this page's background image*/
+            body {
+                background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),url("Math.jpg");
+                background-size:25%;
+            }
+
+            /*styling for special columns and rows displaying math instructions*/
+            * {
+              box-sizing: border-box;
+            }
+
+            .column {
+              float: left;
+              width: 20%;
+              padding: 10px;
+            }
+
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+
+            /*stylings for this page's inputs and text, and special calculation exercise*/
+            .equation {
+                font-family:'Courier New', Courier, monospace;
+                font-size: 18px;
+            }
+
+            input {
+                margin-left: 100px;
+            }
+
+            .equationInstructions {
+                border: 1px solid black;
+                background-color: white;
+            }
+
+            .row, .answer {
+                text-align: center;
+            }
+
+            .answer {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .errorMessage {
+                color: red;
+            }
+
+            .equation {
+                text-align: right;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Math Magic</h1>
+        <p>One thing that I unfortunately see lacking today is the ability to do math without using a calculator. Calculators are found everywhere, on phones, on watches... it kind of deprives a person of the convenience and speed of doing the math themselves. I'm proud to say I have not lost that ability. I learned many math tricks to help speed up any calculation.</p>
+        <br>
+        <p>For example, here is a trick taught by Scott Flansburg, known by his fans as the "Human Calculator":</p>
+        <br>
+
+        <h3>Multiplying two numbers that are close to 100, but less than 100</h3>
+        <h5>Example:</h5>
+        <div class="textToCenter">
+            <pre>  96&emsp;</pre>
+            <pre>x 94&emsp;</pre>
+            <pre>____&emsp;</pre>
+        </div>
+        <br>
+        <blockquote cite="Scott Flansburg, Math Magic: The Human Calculator Shows how to Master Everyday Math Problems in Seconds">"The first thing you notice is that both numbers are pretty close to 100. Quickly figure out the difference between each number and 100. The difference between 96 and 100 is 4. The difference between 94 and 100 is 6. Let's write these numbers down like this:"</blockquote>
+        <h5>Example:</h5>
+        <div class="textToCenter">
+            <pre>  96&emsp; 4</pre>
+            <pre>x 94&emsp; 6</pre>
+            <pre>____&emsp;</pre>
+        </div>
+        <blockquote cite="Scott Flansburg, Math Magic: The Human Calculator Shows how to Master Everyday Math Problems in Seconds">"Now, the second step is to subtract diagonally. By that I mean subtract 6 from 96, or 4 from 94. 96 - 6 = 90. Write that down under the first two numbers. (Note that this is the same as 94 minus 4. It does not matter which you choose. Whichever you diagonally subtract, you get the same number.)"</blockquote>
+        <h5>Example:</h5>
+        <div class="textToCenter">
+            <pre>  96&emsp; 4</pre>
+            <pre>x 94&emsp; 6</pre>
+            <pre>____&emsp;</pre>
+            <pre>  90&emsp;</pre>
+        </div>
+        <blockquote cite="Scott Flansburg, Math Magic: The Human Calculator Shows how to Master Everyday Math Problems in Seconds">"In the third step, we multiply the two numbers we got by figuring the difference between our original numbers and 100: 4 and 6. 4 x 6 = 24. Write that to the right of 90."</blockquote>
+        <h5>Example:</h5>
+        <div class="textToCenter">
+            <pre>  96&emsp; 4</pre>
+            <pre>x 94&emsp; 6</pre>
+            <pre>____&emsp;__</pre>
+            <pre>  90&emsp;24</pre>
+        </div>
+        <blockquote cite="Scott Flansburg, Math Magic: The Human Calculator Shows how to Master Everyday Math Problems in Seconds" class="textToCenter">"Got that? Guess what? You've got the answer: 9024"</blockquote>
+        <h5>Example:</h5>
+        <div class="textToCenter">
+            <pre>  96&emsp; 4</pre>
+            <pre>x 94&emsp; 6</pre>
+            <pre>____&emsp;__</pre>
+            <sp><pre>  9024</pre></sp>
+        </div>
+
+        <h3>Multiplying two numbers that are close to 100, but more than 100</h3>
+        <p>As described by Mr Flansburg, you do the same thing here, finding the difference between the numbers and 100, but instead of subtracting diagonally, you add diagonally. The rest you do the same way.</p>
+        <h5>Example:</h5>
+        <!--pre-made table style text displaying instructions-->
+        <div class='row'>
+            <div class='column'>
+                <pre>  103&emsp;</pre>
+                <pre>x 107&emsp;</pre>
+                <pre>_____&emsp;</pre>
+            </div>
+            <div class='column'>
+                <pre>  103&emsp; 3</pre>
+                <pre>x 107&emsp; 7</pre>
+                <pre>_____&emsp;</pre>
+            </div>
+            <div class='column'>
+                <pre>  103&emsp; 3</pre>
+                <pre>x 107&emsp; 7</pre>
+                <pre>_____&emsp;</pre>
+                <pre>  110&emsp;</pre>
+            </div>
+            <div class='column'>
+                <pre>  103&emsp; 3</pre>
+                <pre>x 107&emsp; 7</pre>
+                <pre>_____&emsp;__</pre>
+                <pre>  110&emsp;21</pre>
+            </div>
+            <div class='column'>
+                <pre>  103&emsp; 3</pre>
+                <pre>x 107&emsp; 7</pre>
+                <pre>_____&emsp;__</pre>
+                <sp><pre>  11021</pre></sp>
+            </div>
+        </div>
+        <p class="answer">Answer: 11021</p>
+
+        <h3>Multiplying two numbers that are close to 100, one is above, the other below</h3>
+        <p>Now this was not described by our friend the Human Calculator. I figured the method for this one on my own. It's a little more complicated, but you get the hang of it.</p>
+        <h5>Example:</h5>
+        <div class="textToCenter">
+            <pre>   93&emsp;</pre>
+            <pre>x 108&emsp;</pre>
+            <pre>_____&emsp;</pre>
+        </div>
+        <p>Do the same thing: find the difference between each number and 100.</p>
+        <h5>Example:</h5>
+        <div class="textToCenter">
+            <pre>   93&emsp; 7</pre>
+            <pre>x 108&emsp; 8</pre>
+            <pre>_____&emsp;</pre>
+        </div>
+        <p>Here's where it gets a little tricky. Do you add or subtract? Well, if it's the smaller number, you add. If it's the bigger number, you subtract. You'll end up with the same result. 108 - 7 = 101. 93 + 8 = 101.</p>
+        <h5>Example:</h5>
+        <div class="textToCenter">
+            <pre>   93&emsp; 7</pre>
+            <pre>x 108&emsp; 8</pre>
+            <pre>_____&emsp;</pre>
+            <pre>  101&emsp;</pre>
+        </div>
+        <p>Next step is again a little more complicated. 7 x 8 = 56, but we can't just write 101 to the left and 56 to the right of it. That gives us 10156, which is wrong. In the first example, 96 x 94, you're essentially taking 9000 (90 times 100) and adding 24 to it, i.e. 9024. But there, we need to take 101 times 100 i.e. 10100, and subtract 56 from it. That gives us the answer.</p>
+        <h5>Example:</h5>
+        <div class="textToCenter">
+            <pre>   93&emsp; 7</pre>
+            <pre>x 108&emsp; 8</pre>
+            <pre>_____&emsp;__</pre>
+            <pre>  101&emsp;00</pre>
+            <pre>    -&emsp;56</pre>
+            <sp><pre>  100&emsp;44</pre></sp>
+        </div>
+        <p class="answer">Answer: 10044</p>
+
+        <!--custom styled table-->
+        <table class="equationInstructions">
+            <tr class="equationInstructions">
+                <th width=250px class="equationInstructions">If the two numbers are...</th>
+                <th width=350px class="equationInstructions">Do this diagonally, then...</th>
+                <th width=600px class="equationInstructions">Multiply the difference numbers and do this with the product:</th>
+            </tr>
+            <tr class="equationInstructions">
+                <td class="equationInstructions">both below 100</td>
+                <td class="equationInstructions">subtract</td>
+                <td class="equationInstructions">put it to the right of the left number (same as multiplying it by 100 then adding)</td>
+            </tr>
+            <tr class="equationInstructions">
+                <td class="equationInstructions">both above 100</td>
+                <td class="equationInstructions">add</td>
+                <td class="equationInstructions">put it to the right of the left number (same as multiplying it by 100 then adding)</td>
+            </tr>
+            <tr class="equationInstructions">
+                <td class="equationInstructions">one is above the other below</td>
+                <td class="equationInstructions">subtract if the larger, add if the smaller</td>
+                <td class="equationInstructions">multiply the left number by 100 and subtract the product from that</td>
+            </tr>
+        </table>
+
+        <br>
+        <p class="textToCenter"><b>Try it! Enter two numbers in the fields below (between 91 and 109) and watch how it's done! Then you can practice it yourself!</b></p>
+        <!--inputs and labels organized in table-->
+        <table>
+            <tr>
+                <td><label>Enter first number (91-109)</label></td>
+                <td><input id="firstNumberInput" type='text'></td>
+                <td><label class="errorMessage" id="firstError"></label></td>
+            </tr>
+            <tr>
+                <td><label>Enter second number (91-109)</label></td>
+                <td><input id="secondNumberInput" type='text'></td>
+                <td><label class="errorMessage" id="secondError"></label></td>
+            </tr>
+        </table>
+        <!--button displaying custom calculation-->
+        <button onclick="calculate()">Calculate it!</button>
+        <br>
+        <!--custom styled table showing calculation-->
+        <table>
+            <tr>
+                <td></td>
+                <td class="equation" id="firstNumber"></td>
+                <td class="equation" id="firstDifference"></td>
+            </tr>
+            <tr>
+                <td class="equation" id="multiplicationSign"></td>
+                <td class="equation" id="secondNumber"></td>
+                <td class="equation" id="secondDifference"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="equation" id="line1"></td>
+                <td class="equation" id="line2"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="equation" id="baseNumber"></td>
+                <td class="equation" id="zeroes"></td>
+            </tr>
+            <tr>
+                <td class="equation" id="operator"></td>
+                <td></td>
+                <td class="equation" id="difference"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="equation" id="firstPart"></td>
+                <td class="equation" id="secondPart"></td>
+            </tr>
+        </table>
+        <p class="answer" id="finalAnswer"></p>
+
+        <br>
+        <p class="endCaption">Learn to do math in your head... it will save you a boatload of time!</p>
+        <div class="buttons">
+            <a href="index.html#bottom" class="btn btn-secondary">Back</a>
+        </div>
+
+
+        <script>
+            function calculate() {
+                number1 = document.getElementById("firstNumberInput").value;
+                number2 = document.getElementById("secondNumberInput").value;
+                document.getElementById("firstError").innerHTML = "";
+                document.getElementById("secondError").innerHTML = "";
+                document.getElementById("finalAnswer").innerHTML = "";
+
+                var myClasses = document.getElementsByClassName("equation");
+
+                // clear custom calculation display
+                for (var i = 0; i < myClasses.length; i++) {
+                    myClasses[i].innerHTML = "";
+                }
+
+                // display errors if numbers out of range
+                if (number1 < 91 || number1 > 109) {
+                    document.getElementById("firstError").innerHTML = "First number out of range.";
+                }
+                else if (number2 < 91 || number2 > 109) {
+                    document.getElementById("secondError").innerHTML = "Second number out of range.";
+                }
+                else {
+                    // get numbers needed for calculation
+                    document.getElementById("firstNumber").innerHTML = number1;
+                    document.getElementById("secondNumber").innerHTML = number2;
+                    document.getElementById("firstDifference").innerHTML = Math.abs(100 - number1);
+                    document.getElementById("secondDifference").innerHTML = Math.abs(100 - number2);
+                    document.getElementById("line1").innerHTML = "___";
+                    document.getElementById("line2").innerHTML = "__";
+                    document.getElementById("multiplicationSign").innerHTML = "x";
+                    firstAnswerPart = 0;
+                    secondAnswerPart = 0;
+                    differenceProduct = Math.abs(100 - number1) * Math.abs(100 - number2);
+                    document.getElementById("difference").innerHTML = differenceProduct;
+                    document.getElementById("zeroes").innerHTML = "00";
+                    if (number1 <= 100 && number2 <= 100) {
+                        //if both numbers are less that 100...
+                        firstAnswerPart = number1 - Math.abs(100 - number2);
+                        document.getElementById("baseNumber").innerHTML = firstAnswerPart;
+                        document.getElementById("operator").innerHTML = "+";
+                        document.getElementById("firstPart").innerHTML = firstAnswerPart;
+                        document.getElementById("secondPart").innerHTML = differenceProduct;
+                    }
+                    else if (number1 >= 100 && number2 >=100) {
+                        //if both numbers are greater than 100...
+                        firstAnswerPart = Number(number1) + Math.abs(100 - number2);
+                        document.getElementById("baseNumber").innerHTML = firstAnswerPart;
+                        document.getElementById("operator").innerHTML = "+";
+                        document.getElementById("firstPart").innerHTML = firstAnswerPart;
+                        document.getElementById("secondPart").innerHTML = differenceProduct;
+                    }
+                    else if (number1 <= 100 && number2 >=100) {
+                        //if the first is less than 100 but the second is greater...
+                        firstAnswerPart = Number(number1) + Math.abs(100 - number2);
+                        document.getElementById("baseNumber").innerHTML = firstAnswerPart;
+                        document.getElementById("operator").innerHTML = "-";
+                        document.getElementById("firstPart").innerHTML = firstAnswerPart - 1;
+                        document.getElementById("secondPart").innerHTML = 100 - differenceProduct;
+                    }
+                    else if (number1 >= 100 && number2 <=100) {
+                        //if the first is greater than 100 but the second is less...
+                        firstAnswerPart = number1 - Math.abs(100 - number2);
+                        document.getElementById("baseNumber").innerHTML = firstAnswerPart;
+                        document.getElementById("operator").innerHTML = "-";
+                        document.getElementById("firstPart").innerHTML = firstAnswerPart - 1;
+                        document.getElementById("secondPart").innerHTML = 100 - differenceProduct;
+                    }
+                    //display final answer
+                    document.getElementById("finalAnswer").innerHTML = "The final answer is: " + (number1 * number2);
+                }
+            }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    </body>
+</html>
